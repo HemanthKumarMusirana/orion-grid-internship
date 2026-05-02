@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Internship Program - Orion Grid</title>
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .info-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border: 1px solid #e0e0e0;
+            transition: transform 0.3s;
+        }
+        
+        .info-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .info-card h3 {
+            color: #0a2e4a;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            border-left: 3px solid #00a8ff;
+            padding-left: 0.8rem;
+        }
+        
+        .info-card p {
+            margin: 0.5rem 0;
+            color: #555;
+        }
+        
+        .track-card {
+            background: #f8f9fa;
+        }
+        
+        .track-card h4 {
+            color: #0a2e4a;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .highlight {
+            color: #00a8ff;
+            font-weight: 600;
+        }
+        
+        .schedule-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+        
+        .schedule-table td {
+            padding: 0.5rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .schedule-table td:first-child {
+            font-weight: 600;
+            color: #0a2e4a;
+            width: 40%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Orion <span>Grid</span></div>
+            <div class="menu-toggle" id="menuToggle">☰</div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="/">Home</a></li>
+                <li><a href="/internship">Internship</a></li>
+                <li><a href="/courses">Courses</a></li>
+                <li><a href="/register">Register</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <h1 style="text-align: center; color: #0a2e4a;">Summer Internship 2026</h1>
+            <p style="text-align: center; font-size: 1.2rem; color: #666;">
+                2 Months of intensive hands-on training in Pondicherry
+            </p>
+            
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>Program Duration</h3>
+                    <p><span class="highlight">2 Months</span> (June - July 2026)</p>
+                    <table class="schedule-table">
+                        <tr><td>Days</td><td>Monday to Friday</td></tr>
+                        <tr><td>Timing</td><td>10:00 AM - 4:00 PM</td></tr>
+                        <tr><td>Total Hours</td><td>120+ Hours</td></tr>
+                    </table>
+                </div>
+                
+                <div class="info-card">
+                    <h3>Eligibility</h3>
+                    <p>B.Tech 2nd & 3rd Year students</p>
+                    <p>Departments: CSE, ECE, EEE</p>
+                    <p>Minimum 60% in current semester</p>
+                    <p>Basic programming knowledge recommended</p>
+                </div>
+                
+                <div class="info-card">
+                    <h3>Certification</h3>
+                    <p>AICTE Approved Certificate</p>
+                    <p>Industry recognized credential</p>
+                    <p>Letter of Recommendation for top performers</p>
+                    <p>Portfolio of real-world projects</p>
+                </div>
+            </div>
+            
+            <div style="margin-top: 3rem;">
+                <h2 style="text-align: center; color: #0a2e4a;">What You'll Learn</h2>
+                <div class="info-grid">
+                    <div class="info-card track-card">
+                        <h4>CSE Track</h4>
+                        <p>Full Stack Development</p>
+                        <p>Artificial Intelligence & Machine Learning</p>
+                        <p>Cloud Computing & DevOps</p>
+                        <p>Data Structures & Algorithms with real projects</p>
+                    </div>
+                    <div class="info-card track-card">
+                        <h4>ECE Track</h4>
+                        <p>Embedded Systems & IoT</p>
+                        <p>VLSI Design & FPGA Programming</p>
+                        <p>Robotics & Automation</p>
+                        <p>Wireless Communication & 5G</p>
+                    </div>
+                    <div class="info-card track-card">
+                        <h4>EEE Track</h4>
+                        <p>Power Systems & Smart Grid</p>
+                        <p>Renewable Energy Systems</p>
+                        <p>Electric Vehicles & Battery Technology</p>
+                        <p>Industrial Automation & PLC</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="margin-top: 3rem; text-align: center;">
+                <a href="/register" class="cta-button">Apply Now</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Orion Grid, Pondicherry. All rights reserved.</p>
+        <p style="margin-top: 10px;">Engineer your future.</p>
+    </footer>
+
+    <script>
+        document.getElementById('menuToggle').addEventListener('click', () => {
+            document.getElementById('navLinks').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

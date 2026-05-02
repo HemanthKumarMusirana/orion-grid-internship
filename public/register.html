@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Orion Grid Internship 2026</title>
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        .form-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        
+        .form-title {
+            text-align: center;
+            color: #0a2e4a;
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .form-subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #0a2e4a;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #00a8ff;
+        }
+        
+        .price-display {
+            background: #f0f7fa;
+            padding: 0.8rem;
+            border-radius: 5px;
+            margin-top: 0.5rem;
+            text-align: center;
+            font-weight: bold;
+            color: #0a2e4a;
+            border-left: 4px solid #00a8ff;
+        }
+        
+        .price-amount {
+            font-size: 1.4rem;
+            color: #00a8ff;
+            font-weight: bold;
+        }
+        
+        .submit-btn {
+            background: #0a2e4a;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.3s;
+            font-weight: 600;
+        }
+        
+        .submit-btn:hover {
+            background: #00a8ff;
+        }
+        
+        .message {
+            margin-top: 1rem;
+            text-align: center;
+            padding: 0.75rem;
+            border-radius: 5px;
+        }
+        
+        .message.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .message.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        
+        .message.loading {
+            background: #e2e3e5;
+            color: #383d41;
+            border: 1px solid #d6d8db;
+        }
+        
+        .required-star {
+            color: #e74c3c;
+        }
+        
+        .field-hint {
+            font-size: 0.8rem;
+            color: #888;
+            margin-top: 0.25rem;
+        }
+        
+        .price-label {
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Orion <span>Grid</span></div>
+            <div class="menu-toggle" id="menuToggle">☰</div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="/">Home</a></li>
+                <li><a href="/internship">Internship</a></li>
+                <li><a href="/courses">Courses</a></li>
+                <li><a href="/register">Register</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="form-container">
+                <h2 class="form-title">Summer Internship Registration 2026</h2>
+                <p class="form-subtitle">
+                    Pondicherry | 2 Months | AICTE Certified
+                </p>
+                
+                <form id="registrationForm">
+                    <div class="form-group">
+                        <label>Full Name <span class="required-star">*</span></label>
+                        <input type="text" id="name" required placeholder="Enter your full name">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Email Address <span class="required-star">*</span></label>
+                        <input type="email" id="email" required placeholder="you@example.com">
+                        <div class="field-hint">Confirmation will be sent here</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>College Name <span class="required-star">*</span></label>
+                        <input type="text" id="college" required placeholder="Your college or university">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Year of Study <span class="required-star">*</span></label>
+                        <select id="year" required>
+                            <option value="">Select Year</option>
+                            <option value="2nd Year B.Tech">2nd Year B.Tech</option>
+                            <option value="3rd Year B.Tech">3rd Year B.Tech</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Contact Number <span class="required-star">*</span></label>
+                        <input type="tel" id="contact" required placeholder="10-digit mobile number">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Department <span class="required-star">*</span></label>
+                        <select id="department" required>
+                            <option value="">Select Department</option>
+                            <option value="CSE">Computer Science Engineering (CSE)</option>
+                            <option value="ECE">Electronics & Communication Engineering (ECE)</option>
+                            <option value="EEE">Electrical & Electronics Engineering (EEE)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Select Course <span class="required-star">*</span></label>
+                        <select id="course" required>
+                            <option value="">First select your department above</option>
+                        </select>
+                        <div class="field-hint" id="courseHint">Courses will appear based on your department selection</div>
+                        <div id="priceDisplay" class="price-display" style="display: none;">
+                            <span class="price-label">Course Fee:</span> <span id="priceAmount" class="price-amount"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Preferred Mode <span class="required-star">*</span></label>
+                        <select id="mode" required>
+                            <option value="">Select Mode</option>
+                            <option value="Offline - Pondicherry">Offline - Pondicherry (Recommended)</option>
+                            <option value="Online">Online</option>
+                        </select>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Register Now</button>
+                </form>
+                
+                <div id="message" class="message"></div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Orion Grid, Pondicherry. All rights reserved.</p>
+        <p style="margin-top: 10px;">Engineer your future.</p>
+    </footer>
+
+    <script>
+        // Course data with UPDATED prices (matching courses page)
+        const coursesWithPrices = {
+            // CSE Courses
+            "Full Stack Web Development": { price: "₹4,999", dept: "CSE" },
+            "Artificial Intelligence & ML": { price: "₹5,999", dept: "CSE" },
+            "Data Science & Analytics": { price: "₹4,999", dept: "CSE" },
+            "Cloud Computing & DevOps": { price: "₹5,999", dept: "CSE" },
+            // ECE Courses
+            "Embedded Systems & IoT": { price: "₹2,999", dept: "ECE" },
+            "VLSI Design": { price: "₹5,999", dept: "ECE" },
+            "Robotics & Automation": { price: "₹3,999", dept: "ECE" },
+            "Wireless Communication": { price: "₹3,999", dept: "ECE" },
+            // EEE Courses
+            "Power Systems & Smart Grid": { price: "₹3,999", dept: "EEE" },
+            "Electric Vehicles & Battery Tech": { price: "₹4,999", dept: "EEE" },
+            "Renewable Energy Systems": { price: "₹3,999", dept: "EEE" },
+            "Industrial Automation & PLC": { price: "₹4,999", dept: "EEE" }
+        };
+        
+        // Courses by department (for dropdown)
+        const coursesByDepartment = {
+            CSE: [
+                "Full Stack Web Development",
+                "Artificial Intelligence & ML",
+                "Data Science & Analytics",
+                "Cloud Computing & DevOps"
+            ],
+            ECE: [
+                "Embedded Systems & IoT",
+                "VLSI Design",
+                "Robotics & Automation",
+                "Wireless Communication"
+            ],
+            EEE: [
+                "Power Systems & Smart Grid",
+                "Electric Vehicles & Battery Tech",
+                "Renewable Energy Systems",
+                "Industrial Automation & PLC"
+            ]
+        };
+        
+        const departmentSelect = document.getElementById('department');
+        const courseSelect = document.getElementById('course');
+        const courseHint = document.getElementById('courseHint');
+        const priceDisplay = document.getElementById('priceDisplay');
+        const priceAmount = document.getElementById('priceAmount');
+        
+        // Department change event
+        departmentSelect.addEventListener('change', function() {
+            const selectedDept = this.value;
+            
+            // Clear current options
+            courseSelect.innerHTML = '<option value="">Select a course</option>';
+            priceDisplay.style.display = 'none';
+            
+            if (selectedDept && coursesByDepartment[selectedDept]) {
+                coursesByDepartment[selectedDept].forEach(course => {
+                    const option = document.createElement('option');
+                    option.value = course;
+                    option.textContent = course;
+                    courseSelect.appendChild(option);
+                });
+                courseSelect.disabled = false;
+                courseHint.textContent = `${coursesByDepartment[selectedDept].length} courses available for ${selectedDept} department`;
+                courseHint.style.color = "#00a8ff";
+            } else if (selectedDept && !coursesByDepartment[selectedDept]) {
+                courseSelect.disabled = true;
+                courseHint.textContent = "Courses coming soon for this department";
+                courseHint.style.color = "#e74c3c";
+            } else {
+                courseSelect.disabled = true;
+                courseHint.textContent = "Please select a department first to see available courses";
+                courseHint.style.color = "#888";
+            }
+        });
+        
+        // Course selection - show price
+        courseSelect.addEventListener('change', function() {
+            const selectedCourse = this.value;
+            
+            if (selectedCourse && coursesWithPrices[selectedCourse]) {
+                priceAmount.textContent = coursesWithPrices[selectedCourse].price;
+                priceDisplay.style.display = 'block';
+            } else {
+                priceDisplay.style.display = 'none';
+            }
+        });
+        
+        // Initialize
+        courseSelect.disabled = true;
+        priceDisplay.style.display = 'none';
+        
+        // Form submission
+        document.getElementById('registrationForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const formData = {
+                name: document.getElementById('name').value.trim(),
+                email: document.getElementById('email').value.trim(),
+                college: document.getElementById('college').value.trim(),
+                year: document.getElementById('year').value,
+                contact: document.getElementById('contact').value.trim(),
+                department: document.getElementById('department').value,
+                course: document.getElementById('course').value,
+                mode: document.getElementById('mode').value
+            };
+            
+            if (!formData.name || !formData.email || !formData.college || !formData.year || 
+                !formData.contact || !formData.department || !formData.course || !formData.mode) {
+                showMessage('Please fill in all required fields', 'error');
+                return;
+            }
+            
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(formData.email)) {
+                showMessage('Please enter a valid email address', 'error');
+                return;
+            }
+            
+            const phoneRegex = /^\d{10}$/;
+            if (!phoneRegex.test(formData.contact)) {
+                showMessage('Please enter a valid 10-digit mobile number', 'error');
+                return;
+            }
+            
+            showMessage('Submitting your registration... Please wait', 'loading');
+            
+            try {
+                const response = await fetch('/api/register', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(formData)
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    showMessage(result.message, 'success');
+                    document.getElementById('registrationForm').reset();
+                    courseSelect.innerHTML = '<option value="">First select your department above</option>';
+                    courseSelect.disabled = true;
+                    courseHint.textContent = "Courses will appear based on your department selection";
+                    courseHint.style.color = "#888";
+                    priceDisplay.style.display = 'none';
+                } else {
+                    showMessage(result.message, 'error');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                showMessage('Network error. Please check your connection and try again.', 'error');
+            }
+        });
+        
+        function showMessage(msg, type) {
+            const messageDiv = document.getElementById('message');
+            messageDiv.textContent = msg;
+            messageDiv.className = `message ${type}`;
+            
+            if (type === 'success') {
+                setTimeout(() => {
+                    messageDiv.className = 'message';
+                    messageDiv.textContent = '';
+                }, 5000);
+            }
+        }
+        
+        document.getElementById('menuToggle').addEventListener('click', () => {
+            document.getElementById('navLinks').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

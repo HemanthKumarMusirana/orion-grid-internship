@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Orion Grid</title>
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        .contact-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .contact-header h1 {
+            color: #0a2e4a;
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .contact-header p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .contact-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            border: 1px solid #e0e0e0;
+            transition: transform 0.3s;
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .contact-card h3 {
+            color: #0a2e4a;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .contact-card p {
+            color: #555;
+            line-height: 1.6;
+            margin: 0.5rem 0;
+        }
+        
+        .contact-card a {
+            color: #00a8ff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .contact-card a:hover {
+            color: #0088cc;
+            text-decoration: underline;
+        }
+        
+        .map-container {
+            margin: 2rem 0;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .map-container iframe {
+            width: 100%;
+            height: 350px;
+            border: none;
+        }
+        
+        .business-hours {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            margin: 2rem 0;
+        }
+        
+        .business-hours h3 {
+            color: #0a2e4a;
+            margin-bottom: 1rem;
+        }
+        
+        .hours-table {
+            max-width: 300px;
+            margin: 0 auto;
+            text-align: left;
+        }
+        
+        .hours-table td {
+            padding: 0.5rem;
+        }
+        
+        .hours-table td:first-child {
+            font-weight: 600;
+            color: #0a2e4a;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 1rem 0;
+        }
+        
+        .social-link {
+            color: #0a2e4a;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .social-link:hover {
+            color: #00a8ff;
+        }
+        
+        .query-form {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+        }
+        
+        .query-form h3 {
+            text-align: center;
+            color: #0a2e4a;
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-row {
+            margin-bottom: 1rem;
+        }
+        
+        .form-row input,
+        .form-row textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        .form-row input:focus,
+        .form-row textarea:focus {
+            outline: none;
+            border-color: #00a8ff;
+        }
+        
+        .form-row textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        
+        .send-btn {
+            background: #0a2e4a;
+            color: white;
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.3s;
+        }
+        
+        .send-btn:hover {
+            background: #00a8ff;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Orion <span>Grid</span></div>
+            <div class="menu-toggle" id="menuToggle">☰</div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="/">Home</a></li>
+                <li><a href="/internship">Internship</a></li>
+                <li><a href="/courses">Courses</a></li>
+                <li><a href="/register">Register</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <div class="container">
+            <div class="contact-header">
+                <h1>Contact Us</h1>
+                <p>Get in touch with us for any queries or support</p>
+            </div>
+            
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <h3>Address</h3>
+                    <p>Orion Grid Learning Center<br>
+                    No. 42, Indira Nagar,<br>
+                    Pondicherry - 605001</p>
+                </div>
+                <div class="contact-card">
+                    <h3>Phone</h3>
+                    <p><a href="tel:+919500779255">+91 95007 79255</a></p>
+                     
+                </div>
+                <div class="contact-card">
+                    <h3>Email</h3>
+                    <p><a href="mailto:hemanth27062006@gmail.com">hemanth27062006@gmail.com</a></p>
+                     
+                </div>
+                <div class="contact-card">
+                    <h3>Social Media</h3>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/company/oriongrid/" target="_blank" class="social-link">LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="map-container">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15680.847472661764!2d79.81201435!3d11.91865385!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5361b8e5b3f2a1%3A0x2b8f5e6a7d8c9b4e!2sPuducherry!5e0!3m2!1sen!2sin!4v1650000000000!5m2!1sen!2sin" 
+                    allowfullscreen="" 
+                    loading="lazy">
+                </iframe>
+            </div>
+            
+            <div class="business-hours">
+                <h3>Business Hours</h3>
+                <table class="hours-table">
+                    <tr>
+                        <td>Monday - Friday</td>
+                        <td>10:00 AM - 6:00 PM</td>
+                    </tr>
+                    <tr>
+                        <td>Saturday</td>
+                        <td>10:00 AM - 2:00 PM</td>
+                    </tr>
+                    <tr>
+                        <td>Sunday</td>
+                        <td>Closed</td>
+                    </tr>
+                </table>
+            </div>
+            
+            <div class="query-form">
+                <h3>Send us a Message</h3>
+                <form id="contactForm">
+                    <div class="form-row">
+                        <input type="text" id="contactName" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-row">
+                        <input type="email" id="contactEmail" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-row">
+                        <input type="tel" id="contactPhone" placeholder="Your Phone Number">
+                    </div>
+                    <div class="form-row">
+                        <textarea id="contactMessage" placeholder="Your Message" required></textarea>
+                    </div>
+                    <div class="form-row">
+                        <button type="submit" class="send-btn">Send Message</button>
+                    </div>
+                </form>
+                <div id="contactMessageStatus" style="margin-top: 1rem; text-align: center;"></div>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <p>&copy; 2026 Orion Grid, Pondicherry. All rights reserved.</p>
+        <p style="margin-top: 10px;">Engineer your future.</p>
+    </footer>
+    
+    <script>
+        document.getElementById('menuToggle').addEventListener('click', () => {
+            document.getElementById('navLinks').classList.toggle('active');
+        });
+        
+        // Simple contact form handler
+        document.getElementById('contactForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const name = document.getElementById('contactName').value.trim();
+            const email = document.getElementById('contactEmail').value.trim();
+            const phone = document.getElementById('contactPhone').value.trim();
+            const message = document.getElementById('contactMessage').value.trim();
+            
+            if (!name || !email || !message) {
+                showContactMessage('Please fill in all required fields', 'error');
+                return;
+            }
+            
+            showContactMessage('Sending your message...', 'loading');
+            
+            try {
+                const response = await fetch('/api/contact', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name, email, phone, message })
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    showContactMessage('Message sent successfully! We will get back to you soon.', 'success');
+                    document.getElementById('contactForm').reset();
+                } else {
+                    showContactMessage('Failed to send message. Please try again or call us directly.', 'error');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                showContactMessage('Network error. Please call us directly at +91 95007 79255', 'error');
+            }
+        });
+        
+        function showContactMessage(msg, type) {
+            const statusDiv = document.getElementById('contactMessageStatus');
+            statusDiv.textContent = msg;
+            statusDiv.style.color = type === 'success' ? 'green' : (type === 'error' ? 'red' : '#666');
+            
+            if (type === 'success') {
+                setTimeout(() => {
+                    statusDiv.textContent = '';
+                }, 5000);
+            }
+        }
+    </script>
+</body>
+</html>

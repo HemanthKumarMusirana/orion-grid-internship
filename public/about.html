@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Orion Grid</title>
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        .about-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .about-header h1 {
+            color: #0a2e4a;
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .about-header p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+        
+        .mission-vision {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .mv-card {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            border: 1px solid #e0e0e0;
+            transition: transform 0.3s;
+        }
+        
+        .mv-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .mv-card h3 {
+            color: #0a2e4a;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        .mv-card p {
+            color: #555;
+            line-height: 1.6;
+        }
+        
+        .values-section {
+            margin: 3rem 0;
+        }
+        
+        .values-section h2 {
+            text-align: center;
+            color: #0a2e4a;
+            margin-bottom: 2rem;
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .value-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 10px;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .value-item h4 {
+            color: #00a8ff;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .value-item p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .story-section {
+            background: #f0f7fa;
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+            text-align: center;
+        }
+        
+        .story-section h3 {
+            color: #0a2e4a;
+            margin-bottom: 1rem;
+        }
+        
+        .story-section p {
+            color: #555;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Orion <span>Grid</span></div>
+            <div class="menu-toggle" id="menuToggle">☰</div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="/">Home</a></li>
+                <li><a href="/internship">Internship</a></li>
+                <li><a href="/courses">Courses</a></li>
+                <li><a href="/register">Register</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <div class="container">
+            <div class="about-header">
+                <h1>About Orion Grid</h1>
+                <p>Building Future Engineers Since 2020</p>
+            </div>
+            
+            <div class="mission-vision">
+                <div class="mv-card">
+                    <h3>Our Mission</h3>
+                    <p>To bridge the gap between academic learning and industry requirements through hands-on training and real-world projects.</p>
+                </div>
+                <div class="mv-card">
+                    <h3>Our Vision</h3>
+                    <p>To become the most trusted internship provider, shaping the next generation of innovative engineers.</p>
+                </div>
+            </div>
+            
+            <div class="stats-section" style="background: linear-gradient(135deg, #0a2e4a 0%, #1a4a6e 100%); color: white; padding: 2rem; text-align: center; border-radius: 10px; margin: 2rem 0;">
+                <div class="stats-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 2rem;">
+                    <div>
+                        <span class="stat-number" style="font-size: 2rem; font-weight: bold; color: #00a8ff;">500+</span>
+                        <p style="margin-top: 0.5rem;">Students Trained</p>
+                    </div>
+                    <div>
+                        <span class="stat-number" style="font-size: 2rem; font-weight: bold; color: #00a8ff;">85%</span>
+                        <p style="margin-top: 0.5rem;">Placement Rate</p>
+                    </div>
+                    <div>
+                        <span class="stat-number" style="font-size: 2rem; font-weight: bold; color: #00a8ff;">20+</span>
+                        <p style="margin-top: 0.5rem;">Partner Colleges</p>
+                    </div>
+                    <div>
+                        <span class="stat-number" style="font-size: 2rem; font-weight: bold; color: #00a8ff;">10+</span>
+                        <p style="margin-top: 0.5rem;">Industry Experts</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="values-section">
+                <h2>Our Core Values</h2>
+                <div class="values-grid">
+                    <div class="value-item">
+                        <h4>Excellence</h4>
+                        <p>Striving for the highest quality in everything we do</p>
+                    </div>
+                    <div class="value-item">
+                        <h4>Innovation</h4>
+                        <p>Embracing new ideas and technologies</p>
+                    </div>
+                    <div class="value-item">
+                        <h4>Integrity</h4>
+                        <p>Building trust through transparency and honesty</p>
+                    </div>
+                    <div class="value-item">
+                        <h4>Student First</h4>
+                        <p>Putting student success at the heart of our mission</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="story-section">
+                <h3>Our Story</h3>
+                <p>Founded in 2020, Orion Grid began with a simple yet powerful idea: to transform how engineering students prepare for their careers. What started as a small initiative has grown into a trusted internship provider, partnering with 20+ engineering colleges across India. Today, we've trained over 500 students and maintain an 85% placement assistance rate, helping young engineers launch successful careers in technology and engineering.</p>
+            </div>
+            
+            <div class="cards" style="margin-top: 2rem;">
+                <div class="card">
+                    <h3>Expert Team</h3>
+                    <p>Industry professionals with 10+ years of experience in top companies like Google, Amazon, Microsoft, and leading engineering firms.</p>
+                </div>
+                <div class="card">
+                    <h3>Industry Recognition</h3>
+                    <p>AICTE approved internship provider with certifications recognized by leading companies across India.</p>
+                </div>
+                <div class="card">
+                    <h3>Student Success</h3>
+                    <p>Our alumni work at prestigious companies and pursue advanced degrees at top universities worldwide.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <p>&copy; 2026 Orion Grid, Pondicherry. All rights reserved.</p>
+        <p style="margin-top: 10px;">Engineer your future.</p>
+    </footer>
+    
+    <script>
+        document.getElementById('menuToggle').addEventListener('click', () => {
+            document.getElementById('navLinks').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

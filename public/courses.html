@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses - Orion Grid Summer Internship 2026</title>
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        .page-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .page-header h1 {
+            color: #0a2e4a;
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .page-header p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+        
+        .department-tabs {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .tab-btn {
+            background: #f0f0f0;
+            border: none;
+            padding: 0.8rem 2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: all 0.3s;
+            color: #333;
+        }
+        
+        .tab-btn.active {
+            background: #0a2e4a;
+            color: white;
+        }
+        
+        .tab-btn:hover:not(.active) {
+            background: #00a8ff;
+            color: white;
+        }
+        
+        .courses-content {
+            display: none;
+            animation: fadeIn 0.5s;
+        }
+        
+        .courses-content.active-content {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .course-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .course-card {
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 1.5rem;
+            transition: all 0.3s;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        .course-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            border-color: #00a8ff;
+        }
+        
+        .course-card h3 {
+            color: #0a2e4a;
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+        
+        .course-price {
+            display: inline-block;
+            background: #00a8ff;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            margin: 0.5rem 0;
+        }
+        
+        .course-duration {
+            color: #666;
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .course-description {
+            color: #666;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+        
+        .course-topics {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #eee;
+        }
+        
+        .course-topics h4 {
+            color: #0a2e4a;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        
+        .topic-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .topic-tag {
+            background: #e8f4f8;
+            color: #0a2e4a;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+        
+        @media (max-width: 768px) {
+            .course-list {
+                grid-template-columns: 1fr;
+            }
+            
+            .tab-btn {
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
+            }
+            
+            .page-header h1 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Orion <span>Grid</span></div>
+            <div class="menu-toggle" id="menuToggle">☰</div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="/">Home</a></li>
+                <li><a href="/internship">Internship</a></li>
+                <li><a href="/courses">Courses</a></li>
+                <li><a href="/register">Register</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="page-header">
+                <h1>Internship Courses</h1>
+                <p>Choose your department - Industry-focused curriculum designed by experts</p>
+            </div>
+            
+            <div class="department-tabs">
+                <button class="tab-btn active" data-dept="cse">CSE</button>
+                <button class="tab-btn" data-dept="ece">ECE</button>
+                <button class="tab-btn" data-dept="eee">EEE</button>
+            </div>
+            
+            <!-- CSE Courses -->
+            <div id="cse-content" class="courses-content active-content">
+                <div class="course-list">
+                    <div class="course-card">
+                        <h3>Full Stack Web Development</h3>
+                        <div class="course-price">₹4999</div>
+                        <div class="course-duration">2 Months | Industry Project</div>
+                        <div class="course-description">Master modern web development with React, Node.js, and MongoDB.</div>
+                        <div class="course-topics">
+                            <h4>Key Topics:</h4>
+                            <div class="topic-tags">
+                                <span class="topic-tag">React.js</span>
+                                <span class="topic-tag">Node.js</span>
+                                <span class="topic-tag">MongoDB</span>
+                                <span class="topic-tag">Express.js</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="course-card">
+                        <h3>Artificial Intelligence & ML</h3>
+                        <div class="course-price">₹5999</div>
+                        <div class="course-duration">2 Months | Hands-on Projects</div>
+                        <div class="course-description">Learn machine learning, deep learning, and AI applications using Python.</div>
+                        <div class="course-topics">
+                            <h4>Key Topics:</h4>
+                            <div class="topic-tags">
+                                <span class="topic-tag">Python</span>
+                                <span class="topic-tag">TensorFlow</span>
+                                <span class="topic-tag">Neural Networks</span>
+                                <span class="topic-tag">Scikit-learn</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="course-card">
+                        <h3>Data Science & Analytics</h3>
+                        <div class="course-price">₹4999</div>
+                        <div class="course-duration">2 Months | Real-world Data</div>
+                        <div class="course-description">Extract insights using statistical analysis and business intelligence tools.</div>
+                        <div class="course-topics">
+                            <h4>Key Topics:</h4>
+                            <div class="topic-tags">
+                                <span class="topic-tag">Python</span>
+                                <span class="topic-tag">Power BI</span>
+                                <span class="topic-tag">SQL</span>
+                                <span class="topic-tag">Tableau</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="course-card">
+                        <h3>Cloud Computing & DevOps</h3>
+                        <div class="course-price">₹5999</div>
+                        <div class="course-duration">2 Months | AWS/Azure</div>
+                        <div class="course-description">Deploy and manage applications on cloud platforms.</div>
+                        <div class="course-topics">
+                            <h4>Key Topics:</h4>
+                            <div class="topic-tags">
+                                <span class="topic-tag">AWS</span>
+                                <span class="topic-tag">Docker</span>
+                                <span class="topic-tag">Kubernetes</span>
+                                <span class="topic-tag">Jenkins</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- ECE Courses -->
+            <div id="ece-content" class="courses-content">
+                <div class="course-list">
+                    <div class="course-card">
+                        <h3>Embedded Systems & IoT</h3>
+                        <div class="course-price">₹2999</div>
+                        <div class="course-duration">2 Months | Hardware Projects</div>
+                        <div class="course-description">Design embedded systems and build IoT devices with sensors.</div>
+                        <div class="course-topics">
+                            <h4>Key Topics:</h4>
+                            <div class="topic-tags">
+                                <span class="topic-tag">Arduino</span>
+                                <span class="topic-tag">Raspberry Pi</span>
+                                <span class="topic-tag">IoT Protocols</span>
+                                <span class="topic-tag">Sensor Integration</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="course-card">
+                        <h3>VLSI Design</h3>
+                        <div class="course-price">₹5,999</div>
+                        <div class="course-duration">2 Months | Chip Design</div>
+                        <div class="course-description">Learn digital circuit design and FPGA programming.</div>
+                        <div class="course-topics">
+                            <h4>Key Topics:</h4>
+                            <div class="topic-tags">
+                                <span class="topic-tag">Verilog</span>
+                                <span class="topic-tag">FPGA</span>
+                                <span class="topic-tag">CMOS</span>
+                                <span class="topic-tag">RTL Design</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="course-card">
+                        <h3>Robotics & Automation</h3>
+                        <div class="course-price">₹3999</div>
+                        <div class="course-duration">2 Months | Build Robots</div>
+                        <div class="course-description">Design, build, and program autonomous robots.</div>
+                        <div class="course-topics">
+                            <h4>Key Topics:</h4>
+                            <div class="topic-tags">
+                                <span class="topic-tag">ROS</span>
+                                <span class="topic-tag">Sensor Fusion</span>
+                                <span class="topic-tag">PID Control</span>
+                                <span class="topic-tag">Computer Vision</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="course-card">
+                        <h3>Wireless Communication</h3>
+                        <div class="course-price">₹3999</div>
+                        <div class="course-duration">2 Months | 5G & Beyond</div>
+                        <div class="course-description">Master modern communication systems and wireless protocols.</div>
+                        <div class="course-topics">
+                            <h4>Key Topics:</h4>
+                            <div class="topic-tags">
+                                <span class="topic-tag">5G/NR</span>
+                                <span class="topic-tag">MATLAB</span>
+                                <span class="topic-tag">Signal Processing</span>
+                                <span class="topic-tag">Antenna Design</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- EEE Courses -->
+            <div id="eee-content" class="courses-content">
+                <div class="course-list">
+                    <div class="course-card">
+                        <h3>Power Systems & Smart Grid</h3>
+                        <div class="course-price">₹3999</div>
+                        <div class="course-duration">2 Months | Modern Grid Tech</div>
+                        <div class="course-description">Understand power generation and smart grid technologies.</div>
+                        <div class="course-topics">
+                            <h4>Key Topics:</h4>
+                            <div class="topic-tags">
+                                <span class="topic-tag">SCADA</span>
+                                <span class="topic-tag">Smart Meters</span>
+                                <span class="topic-tag">ETAP</span>
+                                <span class="topic-tag">Load Forecasting</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="course-card">
+                        <h3>Electric Vehicles & Battery Tech</h3>
+                        <div class="course-price">₹4999</div>
+                        <div class="course-duration">2 Months | Future of Mobility</div>
+                        <div class="course-description">Explore EV drivetrain and battery management systems.</div>
+                        <div class="course-topics">
+                            <h4>Key Topics:</h4>
+                            <div class="topic-tags">
+                                <span class="topic-tag">EV Motors</span>
+                                <span class="topic-tag">BMS</span>
+                                <span class="topic-tag">Li-ion Batteries</span>
+                                <span class="topic-tag">Charging Infrastructure</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="course-card">
+                        <h3>Renewable Energy Systems</h3>
+                        <div class="course-price">₹3999</div>
+                        <div class="course-duration">2 Months | Green Energy</div>
+                        <div class="course-description">Design solar, wind, and hybrid renewable energy systems.</div>
+                        <div class="course-topics">
+                            <h4>Key Topics:</h4>
+                            <div class="topic-tags">
+                                <span class="topic-tag">Solar PV</span>
+                                <span class="topic-tag">Wind Turbines</span>
+                                <span class="topic-tag">Energy Storage</span>
+                                <span class="topic-tag">Grid Integration</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="course-card">
+                        <h3>Industrial Automation & PLC</h3>
+                        <div class="course-price">₹4999</div>
+                        <div class="course-duration">2 Months | Industry 4.0</div>
+                        <div class="course-description">Learn PLC programming and industrial control systems.</div>
+                        <div class="course-topics">
+                            <h4>Key Topics:</h4>
+                            <div class="topic-tags">
+                                <span class="topic-tag">PLC Programming</span>
+                                <span class="topic-tag">SCADA</span>
+                                <span class="topic-tag">HMI Design</span>
+                                <span class="topic-tag">VFD Drives</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Orion Grid, Pondicherry. All rights reserved.</p>
+        <p style="margin-top: 10px;">Engineer your future.</p>
+    </footer>
+
+    <script>
+        document.getElementById('menuToggle').addEventListener('click', () => {
+            document.getElementById('navLinks').classList.toggle('active');
+        });
+        
+        const tabs = document.querySelectorAll('.tab-btn');
+        const contents = {
+            cse: document.getElementById('cse-content'),
+            ece: document.getElementById('ece-content'),
+            eee: document.getElementById('eee-content')
+        };
+        
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                Object.values(contents).forEach(content => {
+                    content.classList.remove('active-content');
+                });
+                const dept = tab.getAttribute('data-dept');
+                contents[dept].classList.add('active-content');
+            });
+        });
+    </script>
+</body>
+</html>
