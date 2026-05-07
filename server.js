@@ -5,20 +5,19 @@ const { google } = require('googleapis');
 const path = require('path');
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static('public'));
 
 // Google Sheets Setup
-const SPREADSHEET_ID = '1mOov_7Qv9qnrZv0Sz-3v6diNA_AVx9AkRns2uyEKShE'; // Replace with your Google Sheet ID
-const SHEET_NAME = 'Sheet1'; // Your sheet name
+const SPREADSHEET_ID = '1mOov_7Qv9qnrZv0Sz-3v6diNA_AVx9AkRns2uyEKShE';
+const SHEET_NAME = 'Sheet1';
 
 // Google Service Account Credentials
-// You'll get this file from Google Cloud Console
 const auth = new google.auth.GoogleAuth({
-    keyFile: 'credentials.json', // Download this from Google Cloud
+    keyFile: 'credentials.json',
     scopes: ['https://www.googleapis.com/auth/spreadsheets'],
 });
 
@@ -28,7 +27,7 @@ const sheets = google.sheets({ version: 'v4', auth });
 async function addToGoogleSheet(studentData) {
     try {
         const values = [[
-            new Date().toISOString(), // Timestamp
+            new Date().toISOString(),
             studentData.name,
             studentData.email,
             studentData.college,
@@ -56,33 +55,31 @@ async function addToGoogleSheet(studentData) {
     }
 }
 
-// Email configuration
+// Email configuration - FIXED PASSWORD (no spaces)
 const emailTransporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-        user: 'hemanth27062006@gmail.com',  // Replace
-        pass: 'vhrp ycll idjq ueug'       // Replace
+        user: 'hemanth27062006@gmail.com',
+        pass: 'ptigdkrdyjuavrqz'  // Fixed: no spaces
     }
 });
 
 // Send auto-reply email
-// Send auto-reply email
-// Send auto-reply email
 async function sendAutoReply(studentData) {
     // Get course price
     const coursePrices = {
-        "Full Stack Web Development": "₹15,000",
-        "Artificial Intelligence & ML": "₹18,000",
-        "Data Science & Analytics": "₹16,000",
-        "Cloud Computing & DevOps": "₹17,000",
-        "Embedded Systems & IoT": "₹15,000",
-        "VLSI Design": "₹18,000",
-        "Robotics & Automation": "₹16,000",
-        "Wireless Communication": "₹15,000",
-        "Power Systems & Smart Grid": "₹15,000",
-        "Electric Vehicles & Battery Tech": "₹18,000",
-        "Renewable Energy Systems": "₹16,000",
-        "Industrial Automation & PLC": "₹15,000"
+        "Full Stack Web Development": "₹4,999",
+        "Artificial Intelligence & ML": "₹5,999",
+        "Data Science & Analytics": "₹4,999",
+        "Cloud Computing & DevOps": "₹5,999",
+        "Embedded Systems & IoT": "₹2,999",
+        "VLSI Design": "₹5,999",
+        "Robotics & Automation": "₹3,999",
+        "Wireless Communication": "₹3,999",
+        "Power Systems & Smart Grid": "₹3,999",
+        "Electric Vehicles & Battery Tech": "₹4,999",
+        "Renewable Energy Systems": "₹3,999",
+        "Industrial Automation & PLC": "₹4,999"
     };
     
     const courseFee = coursePrices[studentData.course] || "Contact for price";
@@ -110,7 +107,7 @@ async function sendAutoReply(studentData) {
                     <li><strong>Fee:</strong> ${courseFee}</li>
                 </ul>
                 
-                <p style="margin-top: 20px;">We'll contact you soon with further instructions.</p>
+                <p style="margin-top: 20px;">Our team will contact you within 24-48 hours with further instructions.</p>
                 
                 <p style="margin-top: 30px;">
                     Best regards,<br>
@@ -136,7 +133,7 @@ async function sendAutoReply(studentData) {
     }
 }
 
-// API endpoint
+// API endpoint (OPTIMIZED - Instant response, email in background)
 app.post('/api/register', async (req, res) => {
     const studentData = {
         name: req.body.name,
@@ -162,25 +159,21 @@ app.post('/api/register', async (req, res) => {
     // Add to Google Sheet
     const sheetSuccess = await addToGoogleSheet(studentData);
     
-    // Send auto-reply email
-    const emailSuccess = await sendAutoReply(studentData);
-    
-    if (sheetSuccess && emailSuccess) {
+    // Send response IMMEDIATELY (don't wait for email)
+    if (sheetSuccess) {
         res.json({ 
             success: true, 
-            message: 'Registration successful! Check your email for confirmation.' 
-        });
-    } else if (sheetSuccess) {
-        res.json({ 
-            success: true, 
-            message: 'Registration saved! But email could not be sent. Please contact support.' 
+            message: 'Registration successful! You will receive a confirmation email shortly.' 
         });
     } else {
         res.json({ 
             success: false, 
-            message: 'Registration failed. Please try again or contact support.' 
+            message: 'Registration failed. Please contact support.' 
         });
     }
+    
+    // Send email in BACKGROUND (don't make user wait)
+    sendAutoReply(studentData).catch(err => console.error('Background email failed:', err));
 });
 
 // Serve pages
@@ -192,6 +185,6 @@ app.get('/about', (req, res) => res.sendFile(path.join(__dirname, 'public', 'abo
 app.get('/contact', (req, res) => res.sendFile(path.join(__dirname, 'public', 'contact.html')));
 
 app.listen(PORT, () => {
-    console.log(`🚀 Orion Grid server running at http://localhost:${PORT}`);
+    console.log(`🚀 Orion Grid server running at http://localhost:3000`);
     console.log(`📊 Data will be saved directly to Google Sheet`);
 });
